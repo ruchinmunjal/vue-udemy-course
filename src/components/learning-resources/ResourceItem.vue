@@ -4,15 +4,18 @@
     <template #header>
       <header>
         <h3>{{title}}</h3>
-        <button>Delete</button>
+        <base-button type='button' mode='flat'>
+          <template #default>Delete</template>
+        </base-button>
       </header>
     </template>
-    <template #default>
+    <template #body>
       <p>
         {{description}}
       </p>
       <nav>
-        <a :href=link>View Resource</a>
+        <a :href=link target='_blank' rel="noreferrer noopener">View Resource</a>
+
       </nav>
     </template>
   </base-card>
@@ -24,6 +27,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'ResourceItem',
   components: {},

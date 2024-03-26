@@ -1,9 +1,11 @@
 <template>
-<div>
-<slot name='header'></slot>
-  <slot name='default'></slot>
+  <div>
+    <div v-if='$slots.header'>
+      <slot name='header'></slot>
+    </div>
+    <slot name='body'></slot>
 
-</div>
+  </div>
 
 </template>
 
