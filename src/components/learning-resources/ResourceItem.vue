@@ -1,29 +1,29 @@
 <template>
-<li>
-  <base-card>
-    <template #header>
-      <header>
-        <h3>{{title}}</h3>
-        <base-button type='button' mode='flat'>
-          <template #default>Delete</template>
-        </base-button>
-      </header>
-    </template>
-    <template #body>
-      <p>
-        {{description}}
-      </p>
-      <nav>
-        <a :href=link target='_blank' rel="noreferrer noopener">View Resource</a>
+  <li>
+    <base-card>
+      <template #header>
+        <header>
+          <h3>{{ title }}</h3>
+          <base-button @click="deleteResource(id)" type='button' mode='flat'>
+            <template #default>Delete</template>
+          </base-button>
+        </header>
+      </template>
+      <template #body>
+        <p>
+          {{ description }}
+        </p>
+        <nav>
+          <a :href=link target='_blank' rel="noreferrer noopener">View Resource</a>
 
-      </nav>
-    </template>
-  </base-card>
-  <div>
+        </nav>
+      </template>
+    </base-card>
+    <div>
 
-  </div>
+    </div>
 
-</li>
+  </li>
 </template>
 
 <script>
@@ -31,19 +31,23 @@
 export default {
   name: 'ResourceItem',
   components: {},
-
-  props:{
-    title:{
-      type:String,
+  inject: ['deleteResource'],
+  props: {
+    id: {
+      type: Number,
       required: true
     },
-    description:{
-      type:String,
-      required:true
+    title: {
+      type: String,
+      required: true
     },
-    link:{
-      type:String,
-      required:false
+    description: {
+      type: String,
+      required: true
+    },
+    link: {
+      type: String,
+      required: false
     }
   }
 };

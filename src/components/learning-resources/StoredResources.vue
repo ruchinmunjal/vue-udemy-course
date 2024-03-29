@@ -1,22 +1,19 @@
 <template>
- <ul>
-   <resource-item v-for='resource in resources' :key='resource.id'
-                  :title='resource.title'
-                  :description='resource.description'
-                  :link='resource.link'
-
-   ></resource-item>
- </ul>
+  <ul>
+    <resource-item v-for='resource in resources' :key='resource.id' :title='resource.title'
+      :description='resource.description' :link='resource.link' :id='resource.id'></resource-item>
+  </ul>
 </template>
 
 <script>
 import ResourceItem from '@/components/learning-resources/ResourceItem';
 export default {
   name: 'StoredResources',
-  components:{
+  components: {
     ResourceItem
   },
-  inject:['resources']
+  inject: ['resources'],
+
 };
 </script>
 
